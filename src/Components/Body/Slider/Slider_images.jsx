@@ -36,6 +36,17 @@ const Slider = () => {
       <div className="image-container zindex">
         <img src={images[currentIndex]} alt={`Slide ${currentIndex}`} />
       </div>
+      <div class="wrapper ten">
+        <div>
+          <h3 class="bounce">
+            <span>I</span>
+
+            <span>LIKE</span>
+            <span>TO</span>
+            <span>YOU</span>
+          </h3>
+        </div>
+      </div>
       <button className="prev-button" onClick={prevSlide}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
