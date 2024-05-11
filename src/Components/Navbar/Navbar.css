@@ -9,7 +9,7 @@ nav {
   position: fixed; 
   top: 0;
   left: 0;
-  width: 92%;
+  width: 100%;
   z-index: 1000; 
 }
 
@@ -69,13 +69,13 @@ nav {
     right: -310px;
     width: 300px;
     height: 100vh;
-    background-color: #ffffff;
+    background-color: #404040;
     box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
     padding: 40px 0 0 10px;
     transition: 0.3s;
   }
   nav{
-    width: 80%;
+    width: 100%;
   }
 
   #navbar.active {

@@ -27,7 +27,8 @@ class Navbar extends Component {
   render() {
     const { isScrolled, clicked } = this.state;
     const navbarClasses = clicked ? "#navbar active" : "#navbar";
-    const logoClasses = isScrolled ? "rounded-[50px]" : "";
+    const logoClasses = isScrolled ? "rounded-[50px] top-[10px] transition-all duration-500 ease-in-out" : "";
+   
 
     return (
       <>
@@ -55,7 +56,7 @@ class Navbar extends Component {
               <li>
                 <a href="/">Services</a>
               </li>
-              <li>
+              <li> 
                 <a href="/">Careers</a>
               </li>
             </ul>
