@@ -1,5 +1,5 @@
 import "./App.css";
-import TextImages from "./Components/Body/ImagesWithText/text-image.jsx";
+import CardsImages from "./Components/Body/ImagesWithCard/card-image.jsx";
 import Slider from "./Components/Body/Slider/Slider_images.jsx";
 import Navbar from "./Components/Navbar/Navbar.jsx";
 
@@ -8,7 +8,7 @@ function App() {
     <>
       <Navbar />
       <Slider />
-      <TextImages/>
+      <CardsImages/>
     </>
   );
 }

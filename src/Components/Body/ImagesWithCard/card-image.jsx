@@ -1,9 +1,8 @@
 import React from "react";
-// import { gsap } from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-import "./text-image.css";
 
-const TextImages = () => {
+import "./card-image.css";
+
+const CardsImages = () => {
   return (
     <>
       <section className="cards">
@@ -73,4 +72,4 @@ const TextImages = () => {
   );
 };
 
-export default TextImages;
+export default CardsImages;
