@@ -46,6 +46,7 @@
 .card--6 .card__img--hover {
   background-image: url('https://images.pexels.com/photos/459740/pexels-photo-459740.jpeg?auto=compress&cs=tinysrgb&w=600');
 }
+
 .card__like {
   width: 18px;
 }
@@ -183,32 +184,34 @@
 .next {
   position: relative;
   top: 300px;
-  
+
 }
-@media screen and ( max-width: 1024px) {
+
+@media screen and (max-width: 1024px) {
   .card {
-    width:400px; 
+    width: 400px;
     left: 100px;
-   
+
   }
-  .cards{
+
+  .cards {
     display: inline;
   }
-  .main{
-    height: 1300px;
+
+  .main {
+    height: 950px;
   }
- 
+
 }
 
 @media screen and (max-width: 768px) {
   .card {
-    width: 300px; 
-    left:25px;
-    
+    width: 300px;
+    left: 70px;
+
   }
   .main{
-    height: 1300px;
+    height: 550px;
   }
+
 }
-
-
