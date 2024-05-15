@@ -1,6 +1,7 @@
 import "./App.css";
 import CardsImages from "./Components/Body/ImagesWithCard/card-image.jsx";
 import Slider from "./Components/Body/Slider/Slider_images.jsx";
+import { Text } from "./Components/Body/TextDesign/Text.jsx";
 import Navbar from "./Components/Navbar/Navbar.jsx";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Navbar />
       <Slider />
       <CardsImages/>
+      <Text />
     </>
   );
 }
