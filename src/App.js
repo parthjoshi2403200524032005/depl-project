@@ -1,4 +1,6 @@
 import "./App.css";
+import TextBox from "./Components/Body/ImagesWithCard/Text-Box.jsx";
+
 import CardsImages from "./Components/Body/ImagesWithCard/card-image.jsx";
 import Slider from "./Components/Body/Slider/Slider_images.jsx";
 import { Text } from "./Components/Body/TextDesign/Text.jsx";
@@ -9,8 +11,9 @@ function App() {
     <>
       <Navbar />
       <Slider />
-      <CardsImages/>
+      <CardsImages />
       <Text />
+      <TextBox />
     </>
   );
 }

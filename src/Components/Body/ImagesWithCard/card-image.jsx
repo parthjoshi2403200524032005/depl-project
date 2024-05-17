@@ -1,71 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./card-image.css";
 
 const CardsImages = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [numCardsToShow, setNumCardsToShow] = useState(3);
   const [showButtons, setShowButtons] = useState(true);
-
-  const totalSlides = 6;
-
-  let slideInterval;
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 768) {
-        setNumCardsToShow(1);
-        setShowButtons(false);
-      } else if (window.innerWidth <= 1024) {
-        setNumCardsToShow(2);
-        setShowButtons(true);
-      } else {
-        setNumCardsToShow(3);
-        setShowButtons(true);
-      }
-    };
-
-    // Call handleResize once after the initial render
-    handleResize();
-
-    // Add event listener to detect window resize
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup by removing event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []); // Empty dependency array to run effect only once after the initial render
-
-  const startAutoSlide = () => {
-    // Only start auto slide if there are more cards than can be shown
-    if (totalSlides > numCardsToShow) {
-      slideInterval = setInterval(() => {
-        setCurrentSlide((prevSlide) =>
-          prevSlide === totalSlides - 1 ? 0 : prevSlide + 1
-        );
-      }, 6000);
-    }
-  };
-
-  const handleMouseEnter = () => {
-    clearInterval(slideInterval);
-  };
-
-  const handleMouseLeave = () => {
-    startAutoSlide();
-  };
-
-  const nextSlide = () => {
-    setCurrentSlide((prevSlide) =>
-      prevSlide + numCardsToShow < totalSlides ? prevSlide + 1 : 0
-    );
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prevSlide) =>
-      prevSlide === 0 ? totalSlides - numCardsToShow : prevSlide - 1
-    );
-  };
+  const slideInterval = useRef(null);
 
   const array = [
     <article className="card card--1">
@@ -255,60 +195,124 @@ const CardsImages = () => {
     </article>
   ];
 
+  const totalSlides = array.length;
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setNumCardsToShow(1);
+        setShowButtons(false);
+      } else if (window.innerWidth <= 1024) {
+        setNumCardsToShow(2);
+        setShowButtons(true);
+      } else {
+        setNumCardsToShow(3);
+        setShowButtons(true);
+      }
+    };
+
+    // Call handleResize once after the initial render
+    handleResize();
+
+    // Add event listener to detect window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup by removing event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); // Empty dependency array to run effect only once after the initial render
+
+  const startAutoSlide = () => {
+    // Only start auto slide if there are more cards than can be shown
+    if (totalSlides > numCardsToShow) {
+      slideInterval.current = setInterval(() => {
+        setCurrentSlide((prevSlide) =>
+          prevSlide === totalSlides - 1 ? 0 : prevSlide + 1
+        );
+      }, 6000);
+    }
+  };
+
+  useEffect(() => {
+    startAutoSlide();
+
+    return () => {
+      clearInterval(slideInterval.current);
+    };
+  }, [numCardsToShow, totalSlides]);
+
+  const handleMouseEnter = () => {
+    clearInterval(slideInterval.current);
+  };
+
+  const handleMouseLeave = () => {
+    startAutoSlide();
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prevSlide) =>
+      prevSlide + numCardsToShow < totalSlides ? prevSlide + 1 : 0
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prevSlide) =>
+      prevSlide === 0 ? totalSlides - numCardsToShow : prevSlide - 1
+    );
+  };
+
   return (
-    <>
-      <div className={`flex bg-[#212121] h-[600px] main `}>
-        {showButtons && (
-          <button
-            onClick={prevSlide}
-            className="next transition duration-300 transform hover:scale-110  h-[50px] w-[50px] bg-gray-200 rounded-full flex items-center justify-center focus:outline-none"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-arrow-left"
-              viewBox="0 0 16 16"
-            >
-              <path d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
-            </svg>
-          </button>
-        )}
-        <div
-          className="flex w-full mt-12 mb-8 "
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+    <div className={`flex bg-[#212121] h-[600px] main `}>
+      {showButtons && (
+        <button
+          onClick={prevSlide}
+          className="next transition duration-300 transform hover:scale-110  h-[50px] w-[50px] bg-gray-200 rounded-full flex items-center justify-center focus:outline-none"
         >
-          <section className="cards" id="cards">
-            {array
-              .slice(currentSlide, currentSlide + numCardsToShow)
-              .map((card, index) => (
-                <div key={index} className="card-wrapper">
-                  {card}
-                </div>
-              ))}
-          </section>
-        </div>
-        {showButtons && (
-          <button
-            onClick={nextSlide}
-            className="next transition duration-300 transform hover:scale-110  h-[50px] w-[50px]  bg-gray-200 rounded-full flex items-center justify-center focus:outline-none"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            className="bi bi-arrow-left"
+            viewBox="0 0 16 16"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-arrow-right"
-              viewBox="0 0 16 16"
-            >
-              <path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
-            </svg>
-          </button>
-        )}
+            <path d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+          </svg>
+        </button>
+      )}
+      <div
+        className="flex w-full mt-12 mb-8 "
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <section className="cards" id="cards">
+          {array
+            .slice(currentSlide, currentSlide + numCardsToShow)
+            .map((card, index) => (
+              <div key={index} className="card-wrapper">
+                {card}
+              </div>
+            ))}
+        </section>
       </div>
-    </>
+      {showButtons && (
+        <button
+          onClick={nextSlide}
+          className="next transition duration-300 transform hover:scale-110  h-[50px] w-[50px]  bg-gray-200 rounded-full flex items-center justify-center focus:outline-none"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            className="bi bi-arrow-right"
+            viewBox="0 0 16 16"
+          >
+            <path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+          </svg>
+        </button>
+      )}
+    </div>
   );
 };
 
