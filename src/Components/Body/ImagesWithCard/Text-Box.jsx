@@ -54,18 +54,18 @@ const TextBox = () => {
         </div>
 
         <div className="main-div">
-          <div className="div1 font">200K</div>
+          <div className="div1 font">3.1 Billion</div>
           <br />
           <div className="div1 ">
-            <span>Happy Customers</span>
+            <span>KwH of Clean Energy</span>
           </div>
         </div>
 
         <div className="main-div">
-          <div className="div1 font">200K</div>
+          <div className="div1 font">2.4 Million</div>
           <br />
           <div className="div1 ">
-            <span>Happy Customers</span>
+            <span>Metric Tons of Carbon Emissions Avoided</span>
           </div>
         </div>
       </div>

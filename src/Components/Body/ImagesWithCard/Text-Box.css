@@ -304,8 +304,8 @@ h1 {
 .container {
   width: 100%;
   position: relative;
-  left: 60px;
-  gap: 20px;
+  left: 50px;
+  gap: 30px;
 }
 
 .main-div {
@@ -412,6 +412,8 @@ h1 {
     width: 355px;
   }
 }
+
+
 
 /* Media Queries for Responsive Design */
 @media (max-width: 1024px) {
