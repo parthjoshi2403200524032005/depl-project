@@ -35,12 +35,12 @@
   z-index: -1;
 }
 
-.bg-div2 {
+.bg-.div12 {
   animation-direction: alternate-reverse;
   animation-duration: 2s;
 }
 
-.bg-div3 {
+.bg-.div13 {
   animation-duration: 4s;
 }
 
@@ -127,6 +127,7 @@ h1 {
 
 /* Media Queries */
 @media screen and (max-width: 768px) {
+
   .container1,
   .container2,
   .container3 {
@@ -159,6 +160,7 @@ h1 {
 }
 
 @media screen and (max-width: 480px) {
+
   .container1,
   .container2,
   .container3 {
@@ -207,18 +209,19 @@ h1 {
   background-color: #F2F2F2;
   width: 98%;
   margin: 20px;
-  
+
   height: 160px;
 
 }
 
 .text2 {
-  font: normal normal normal 50px/1.4em syne, sans-serif;;
+  font: normal normal normal 50px/1.4em syne, sans-serif;
+  ;
   color: rgb(18, 34, 46);
   letter-spacing: 0em;
   padding-left: 50px;
   padding-top: 50px;
- 
+
 }
 
 .button {
@@ -246,7 +249,7 @@ h1 {
     letter-spacing: 0em;
     padding-left: 50px;
     padding-top: 50px;
-    
+
   }
 
   .button {
@@ -262,7 +265,6 @@ h1 {
   .Textbackground2 {
     height: 200px;
     width: 95%;
-
   }
 
 }
@@ -275,7 +277,7 @@ h1 {
     letter-spacing: 0em;
     padding-left: 50px;
     padding-top: 50px;
-    
+
   }
 
   .button {
@@ -294,4 +296,246 @@ h1 {
     width: 92%;
 
   }
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+.container {
+  width: 100%;
+  position: relative;
+  left: 60px;
+  gap: 20px;
+}
+
+.main-div {
+  text-align: center;
+  background-color: #CFDDE9;
+  color: #555;
+  font-family: 'Roboto';
+  font-weight: 300;
+  width: 90%;
+  /* Adjust width to be responsive */
+  max-width: 850px;
+  /* Ensure it doesn't exceed original max width */
+  font-size: 32px;
+  /* Use relative font size for responsiveness */
+  padding-top: 100px;
+  /* Use relative padding for responsiveness */
+  height: auto;
+  /* Adjust height to be auto */
+  min-height: 350px;
+  /* Ensure minimum height */
+  margin: 0 auto 20px auto;
+  /* Center the main-div */
+}
+
+
+.div1 {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.div1:first-of-type {
+
+  animation: showup 7s infinite;
+}
+
+.div1:last-of-type {
+  width: 0px;
+  animation: reveal 7s infinite;
+}
+
+.div1:last-of-type span {
+  margin-left: -355px;
+  animation: slidein 7s infinite;
+}
+
+@keyframes showup {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes slidein {
+  0% {
+    margin-left: -800px;
+  }
+
+  20% {
+    margin-left: -800px;
+  }
+
+  35% {
+    margin-left: 0px;
+  }
+
+  100% {
+    margin-left: 0px;
+  }
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    width: 0px;
+  }
+
+  20% {
+    opacity: 1;
+    width: 0px;
+  }
+
+  30% {
+    width: 355px;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    width: 355px;
+  }
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1024px) {
+  .main-div {
+    font-size: 4vw;
+    padding-top: 8vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-div {
+    font-size: 6vw;
+    padding-top: 12vw;
+  }
+
+  .div1:last-of-type span {
+    margin-left: -200px;
+  }
+
+  @keyframes slidein {
+    0% {
+      margin-left: -400px;
+    }
+
+    20% {
+      margin-left: -400px;
+    }
+
+    35% {
+      margin-left: 0px;
+    }
+
+    100% {
+      margin-left: 0px;
+    }
+  }
+
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+      width: 0px;
+    }
+
+    20% {
+      opacity: 1;
+      width: 0px;
+    }
+
+    30% {
+      width: 200px;
+    }
+
+    80% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      width: 200px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .main-div {
+    font-size: 20px;
+    padding-top: 16vw;
+   
+  }
+  .container{
+    margin: 0 auto 20px auto;
+  }
+
+  .div1:last-of-type span {
+    margin-left: -100px;
+  }
+
+  @keyframes slidein {
+    0% {
+      margin-left: -200px;
+    }
+
+    20% {
+      margin-left: -200px;
+    }
+
+    35% {
+      margin-left: 0px;
+    }
+
+    100% {
+      margin-left: 0px;
+    }
+  }
+
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+      width: 0px;
+    }
+
+    20% {
+      opacity: 1;
+      width: 0px;
+    }
+
+    30% {
+      width: 100px;
+    }
+
+    80% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      width: 100px;
+    }
+  }
+}
+
+.font {
+  font-size: 50px;
+  color: black;
+  font-weight: 800;
+  font-family: 'Raleway', sans-serif;
 }
