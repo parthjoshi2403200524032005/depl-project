@@ -6,6 +6,7 @@ import { Text } from './Components/Body/TextDesign/Text'
 import TextBox from './Components/Body/ImagesWithCard/Text-Box'
 import { Image } from './Components/Body/ImagesWithCard/Image'
 import { Threecard } from './Components/Body/ImagesWithCard/Three-card'
+import { Fixedimage } from './Components/Body/Fixed-back-image/fixed-image'
 
 export const Main = () => {
   return (
@@ -17,6 +18,7 @@ export const Main = () => {
       <TextBox />
       <Image />
       <Threecard/>
+      <Fixedimage/>
     </>
   )
 }

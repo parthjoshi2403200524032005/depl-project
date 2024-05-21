@@ -18,6 +18,8 @@
 
 .container1 {
   background-image: url("https://cdn.pixabay.com/photo/2016/11/29/07/19/clouds-1868060_640.jpg");
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .container3 {
