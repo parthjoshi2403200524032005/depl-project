@@ -262,7 +262,9 @@ const CardsImages = () => {
   };
 
   return (
-    <div className={`flex bg-[#212121] h-[600px] main `}>
+    <div
+      className={`flex bg-[#d8eff7] h-[600px] mt-[20px] main  rounded-[20px]`}
+    >
       {showButtons && (
         <button
           onClick={prevSlide}

@@ -1,40 +1,40 @@
 .container7 {
     background-image: url('./image/c837a6_aed026acf565458bb2fb96524b85f702mv2.jpg');
-  
     background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-position: bottom left;
 }
-
-
 
 
 .container7,
 .container8,
 .container9 {
-    background-size: cover;
-    position: relative;
-    width: 100%;
-    max-width: 520px;
-    /* Adjust this to your desired width */
+    width: 520px;
+    max-width: 500px;
     height: 650px;
-    /* Adjust this to your desired height */
-    /* overflow: hidden; */
-    /* margin: 0 auto;  */
     border-radius: .25em;
     box-shadow: 0 0 .25em rgba(0, 0, 0, .25);
-    margin-left: 25px;
+    margin-left: 40px;
     margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
 }
 
-
+.container7 {
+    margin-left: 30px;
+    max-width: 500px;
+}
 
 .container8 {
-    background-image: url("https://cdn.pixabay.com/photo/2022/07/31/19/56/girl-7356696_640.jpg");
+    max-width: 550px;
 }
 
 
+.container9 {
+    background-image: url("./image/9a6c410f-12fc-446d-8a83-8b9fbbfec2eb.jpeg");
+    background-attachment: fixed;
+    max-width: 490px;
+    background-position: bottom right;
+}
 
 
 
@@ -44,8 +44,11 @@
     margin-left: 50px;
 }
 
-.content8 {
+.content9 ,.content7{
     margin-top: 300px;
+}
+.content8{
+    margin-left: 60px;
 }
 
 .content {
@@ -75,7 +78,7 @@ h1 {
     }
 }
 
-.para7,
+.para12,
 .para8,
 .para9 {
     font: normal normal normal 16px/1.6em avenir-lt-w01_35-light1475496, avenir-lt-w05_35-light, sans-serif;
@@ -86,12 +89,12 @@ h1 {
     margin-top: 20px;
 }
 
-.para7 {
-    color: rgb(18, 34, 46);
+.para12 {
+    color: rgb(243, 244, 245);
 }
 
 .para8 {
-    color: rgb(246, 246, 246);
+    color: #12222E;
 }
 
 .para9 {
@@ -107,17 +110,36 @@ h1 {
 }
 
 .heading7 {
-    color: rgb(18, 34, 46);
+    color: rgb(242, 243, 244);
 }
 
 .heading8 {
-    color: rgb(250, 252, 253);
+    color: #12222E;
     width: 270px;
 }
 
 .heading9 {
     color: rgb(246, 248, 250);
 }
+
+.bg-div7 {
+    animation: slide-background 3s ease-in-out infinite alternate;
+    background: linear-gradient(-60deg,#12222E  20%,#12222E 20%,#CFDDE9 40%);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    background-size: 200% 200%;
+    z-index: -1;
+  }
+  
+  .bg-.div8 {
+    animation-direction: alternate-reverse;
+    animation-duration: 2s;
+  }
+  
+  .bg-.div9 {
+    animation-duration: 4s;
+  }
 
 /* Media Queries */
 @media screen and (max-width: 768px) {
@@ -143,7 +165,7 @@ h1 {
         margin-top: 10px;
     }
 
-    .para7,
+    .para12,
     .para8,
     .para9,
     .heading7,
@@ -181,7 +203,7 @@ h1 {
         margin-top: 5px;
     }
 
-    .para7,
+    .para12,
     .para8,
     .para9,
     .heading7,

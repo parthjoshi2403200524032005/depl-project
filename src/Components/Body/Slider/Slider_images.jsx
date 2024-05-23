@@ -33,7 +33,7 @@ const Slider = () => {
 
   return (
     <div className="slider-container ">
-      <div className="image-container zindex">
+      <div className="image-container zindex" >
         <img src={images[currentIndex]} alt={`Slide ${currentIndex}`} />
       </div>
       <div className="wrapper ten">
