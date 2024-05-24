@@ -227,7 +227,7 @@ const CardsImages = () => {
     if (totalSlides > numCardsToShow) {
       slideInterval.current = setInterval(() => {
         setCurrentSlide((prevSlide) =>
-          prevSlide === totalSlides - 1 ? 0 : prevSlide + 1
+          prevSlide + numCardsToShow < totalSlides ? prevSlide + 1 : 0
         );
       }, 6000);
     }
