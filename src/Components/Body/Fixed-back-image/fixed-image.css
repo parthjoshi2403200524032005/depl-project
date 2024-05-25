@@ -17,6 +17,7 @@
     margin-bottom: 20px;
     overflow: hidden;
     position: relative;
+    backdrop-filter: darken(40%);
 }
 
 .container7 {
